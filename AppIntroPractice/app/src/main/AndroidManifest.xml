@@ -13,6 +13,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AppIntroActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:name=".ScreenSlideViewPager" android:theme="@style/AppTheme.Intro"/>
     </application>
 
 </manifest>

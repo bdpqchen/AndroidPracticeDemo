@@ -38,7 +38,7 @@ public class AppIntroActivity extends AppCompatActivity implements GestureDetect
         this.mContext = this;
         mFlipper = (ViewFlipper) findViewById(R.id.view_flipper);
         mFlipper.addView(addImage(R.drawable.eighth), 0);
-        mFlipper.addView(addImage(R.drawable.sixth), 1);c
+        mFlipper.addView(addImage(R.drawable.sixth), 1);
 //        mFlipper.addView(addImage(R.drawable.eighth), 2);
 //        mFlipper.addView(addImage(R.drawable.eighth), 3);
 //        mFlipper.addView(addImage(R.drawable.fifth), 4);

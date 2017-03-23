@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(mContext, AppIntroActivity.class));
+//                startActivity(new Intent(mContext, AppIntroActivity.class));
+                startActivity(new Intent(mContext, ScreenSlideViewPager.class));
             }
         });
         thread.start();
