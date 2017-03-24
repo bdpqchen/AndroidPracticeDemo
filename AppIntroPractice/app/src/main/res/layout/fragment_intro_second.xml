@@ -3,14 +3,18 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_pager_title"
+
+        />
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:scaleType="centerCrop"
+        android:layout_height="wrap_content"
         android:id="@+id/view_pager_image"
-        android:fitsSystemWindows="true"
-        android:clipToPadding="true"
-
+        android:src="@drawable/image2"
         />
 
     <TextView
@@ -20,8 +24,5 @@
         android:textSize="25sp"
         android:text="fragment 1 description 1"
         android:textColor="@color/colorAccent"
-
         />
-
-
 </LinearLayout>
