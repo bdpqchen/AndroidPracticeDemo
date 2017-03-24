@@ -14,6 +14,7 @@
         </activity>
         <activity android:name=".AppIntroActivity" android:theme="@style/AppTheme.Intro"/>
         <activity android:name=".ScreenSlideViewPagerActivity" android:theme="@style/AppTheme.Intro"/>
+        <activity android:name=".intro.IntroActivity" android:theme="@style/AppTheme.Intro"/>
     </application>
 
 </manifest>

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.bdpqchen.appintropractice.intro.IntroActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private Context mContext;
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 //                startActivity(new Intent(mContext, AppIntroActivity.class));
-                startActivity(new Intent(mContext, ScreenSlideViewPagerActivity.class));
+                startActivity(new Intent(mContext, IntroActivity.class));
             }
         });
         thread.start();
