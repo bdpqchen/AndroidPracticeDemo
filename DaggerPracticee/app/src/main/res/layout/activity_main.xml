@@ -12,7 +12,18 @@
         android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:text="Hello World!"
         tools:layout_editor_absoluteY="67dp"
-        tools:layout_editor_absoluteX="204dp" />
+        tools:layout_editor_absoluteX="204dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Hello World!"
+        tools:layout_editor_absoluteY="67dp"
+        tools:layout_editor_absoluteX="204dp"
+        tools:ignore="MissingConstraints" />
+
 
     <Button
         android:id="@+id/button"
@@ -22,13 +33,5 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/text1"
         app:layout_constraintRight_toLeftOf="@+id/text1"
         android:layout_marginRight="8dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteY="214dp"
-        tools:layout_editor_absoluteX="88dp" />
 
 </android.support.constraint.ConstraintLayout>

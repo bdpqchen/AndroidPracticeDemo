@@ -4,13 +4,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.bdpqchen.daggerpracticee.module.Gson;
+import com.bdpqchen.daggerpracticee.module.Heater;
+
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
 
     @Inject
     Heater mHeater;
-    private TextView mTextView;
+
+    @Inject
+    Gson mGson;
+
+    private TextView mTextView1, mTextView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         DaggerMainComponent.builder().build().inject(this);
 
-        mTextView = (TextView) findViewById(R.id.text1);
-        mTextView.setText(mHeater.getmName());
+
+        mTextView1 = (TextView) findViewById(R.id.text1);
+        mTextView1.setText(mHeater.getmName());
+
+        mTextView2 = (TextView) findViewById(R.id.text2);
+
 
     }
 }
