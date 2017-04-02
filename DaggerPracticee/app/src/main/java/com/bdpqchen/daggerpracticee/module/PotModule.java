@@ -5,6 +5,8 @@ import com.bdpqchen.daggerpracticee.model.Lily;
 import com.bdpqchen.daggerpracticee.model.Pot;
 import com.bdpqchen.daggerpracticee.model.Rouse;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -16,6 +18,7 @@ import dagger.Provides;
 public class PotModule {
 
     @Provides
+    @Singleton
     public Pot providePot(@Rouse.RouseFlower Flower flower){
         return new Pot(flower);
     }

@@ -1,7 +1,9 @@
 package com.bdpqchen.daggerpracticee.component;
 
+import com.bdpqchen.daggerpracticee.model.Flower;
+import com.bdpqchen.daggerpracticee.model.Lily;
+import com.bdpqchen.daggerpracticee.model.Rouse;
 import com.bdpqchen.daggerpracticee.module.FlowerModule;
-import com.bdpqchen.daggerpracticee.module.PotModule;
 
 import dagger.Component;
 
@@ -11,13 +13,11 @@ import dagger.Component;
 @Component(modules = FlowerModule.class)
 public interface FlowerComponent  {
 
-    /*@Rouse.RouseFlower
+    @Rouse.RouseFlower
     Flower getRouseFlower();
 
     @Lily.LilyFlower
-    Flower getLilyFower();*/
-
-    PotComponent plus(PotModule potModule);
+    Flower getLilyFower();
 
 
 }
