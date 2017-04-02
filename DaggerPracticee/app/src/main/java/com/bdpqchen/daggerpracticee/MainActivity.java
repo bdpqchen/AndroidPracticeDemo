@@ -1,10 +1,12 @@
 package com.bdpqchen.daggerpracticee;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.bdpqchen.daggerpracticee.activity.SecondActivity;
 import com.bdpqchen.daggerpracticee.component.DaggerFlowerComponent;
 import com.bdpqchen.daggerpracticee.component.DaggerMainActivityComponent;
 import com.bdpqchen.daggerpracticee.component.DaggerPotComponent;
@@ -27,7 +29,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+/*
         DaggerMainActivityComponent.builder().potComponent(DaggerPotComponent.builder().flowerComponent(DaggerFlowerComponent.create()).build())
+                .build()
+                .inject(this);
+*/
+
+        DaggerMainActivityComponent.builder()
+                .potComponent(((App)getApplication()).getPotComponent())
                 .build()
                 .inject(this);
 
@@ -39,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
        String showStr =  mPot.show();
        mTextView2.setText(showStr);
+       startActivity(new Intent(this, SecondActivity.class));
 
     }
 }
