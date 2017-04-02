@@ -1,4 +1,4 @@
-package com.bdpqchen.daggerpracticee.module;
+package com.bdpqchen.daggerpracticee.model;
 
 import javax.inject.Inject;
 
@@ -15,8 +15,15 @@ public class Heater  {
         this.mName = "FName";
     }
 
+  /*  @Inject
+    public Heater(String s){
+        this.mName = s;
+    }
+*/
     public String getmName(){
         return mName;
     }
+
+
 
 }

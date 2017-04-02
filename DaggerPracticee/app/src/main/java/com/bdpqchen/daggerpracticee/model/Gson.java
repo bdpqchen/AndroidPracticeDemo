@@ -1,4 +1,4 @@
-package com.bdpqchen.daggerpracticee.module;
+package com.bdpqchen.daggerpracticee.model;
 
 import javax.inject.Inject;
 
