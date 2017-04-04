@@ -19,7 +19,7 @@ public class HomeActivity extends DemoActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((DemoApplication)getApplication()).component().inject(this);
-        Log.i("HomeAcitivity", locationManager.toString());
+//        ((DemoApplication)getApplication()).component().inject(this);
+//        Log.i("HomeAcitivity", locationManager.toString());
     }
 }

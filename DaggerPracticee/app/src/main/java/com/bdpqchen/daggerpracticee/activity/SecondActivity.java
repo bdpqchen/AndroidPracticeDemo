@@ -5,8 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.bdpqchen.daggerpracticee.App;
-import com.bdpqchen.daggerpracticee.component.DaggerSecondActivityComponent;
+import com.bdpqchen.daggerpracticee.application.App;
 import com.bdpqchen.daggerpracticee.model.Pot;
 
 import javax.inject.Inject;
@@ -29,11 +28,11 @@ public class SecondActivity extends AppCompatActivity {
                 .inject(this);
 */
 
-        DaggerSecondActivityComponent.builder()
+    /*    DaggerSecondActivityComponent.builder()
                 .potComponent(((App)getApplication()).getPotComponent())
                 .build()
                 .inject(this);
-
+*/
         Log.i("pot3", String.valueOf(pot3.hashCode()));
 
     }

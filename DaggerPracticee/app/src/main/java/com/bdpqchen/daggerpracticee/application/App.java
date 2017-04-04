@@ -1,9 +1,7 @@
-package com.bdpqchen.daggerpracticee;
+package com.bdpqchen.daggerpracticee.application;
 
 import android.app.Application;
 
-import com.bdpqchen.daggerpracticee.component.DaggerFlowerComponent;
-import com.bdpqchen.daggerpracticee.component.DaggerPotComponent;
 import com.bdpqchen.daggerpracticee.component.PotComponent;
 
 /**
@@ -18,8 +16,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        potComponent = DaggerPotComponent.builder()
-                .flowerComponent(DaggerFlowerComponent.create()).build();
+      /*  potComponent = DaggerPotComponent.builder()
+                .flowerComponent(DaggerFlowerComponent.create()).build();*/
     }
 
     public PotComponent getPotComponent(){

@@ -13,6 +13,7 @@ import dagger.Component;
  * Created by bdpqchen on 17-4-3.
  */
 
+
 public class DemoApplication extends Application {
 
     @Singleton
@@ -36,7 +37,6 @@ public class DemoApplication extends Application {
                 .androidModule(new AndroidModule(this))
                 .build();
         component.inject(this);
-
 
     }
 

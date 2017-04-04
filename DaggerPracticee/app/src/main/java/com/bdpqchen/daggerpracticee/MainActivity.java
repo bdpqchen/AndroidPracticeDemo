@@ -7,9 +7,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.bdpqchen.daggerpracticee.activity.SecondActivity;
-import com.bdpqchen.daggerpracticee.component.DaggerFlowerComponent;
-import com.bdpqchen.daggerpracticee.component.DaggerMainActivityComponent;
-import com.bdpqchen.daggerpracticee.component.DaggerPotComponent;
+import com.bdpqchen.daggerpracticee.application.App;
 import com.bdpqchen.daggerpracticee.model.Pot;
 
 import javax.inject.Inject;
@@ -35,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
                 .inject(this);
 */
 
-        DaggerMainActivityComponent.builder()
+       /* DaggerMainActivityComponent.builder()
                 .potComponent(((App)getApplication()).getPotComponent())
                 .build()
                 .inject(this);
-
+*/
         mTextView1 = (TextView) findViewById(R.id.text1);
         mTextView2 = (TextView) findViewById(R.id.text2);
+
+
 
         Log.i("pot1", String.valueOf(mPot.hashCode()));
         Log.i("pot2", String.valueOf(mPot2.hashCode()));
