@@ -14,8 +14,8 @@ public final class ApplicationModule {
 
     private final Context mContext;
 
-    ApplicationModule(Context mContext) {
-        this.mContext = mContext;
+    public ApplicationModule(Context context) {
+        mContext = context;
     }
     
     @Provides

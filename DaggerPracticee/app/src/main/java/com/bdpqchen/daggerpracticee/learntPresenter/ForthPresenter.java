@@ -6,7 +6,7 @@ import javax.inject.Inject;
  * Created by bdpqchen on 17-4-4.
  */
 
-public class ForthPresenter implements ForthContract.Presenter{
+final class ForthPresenter implements ForthContract.Presenter{
 
     private final ForthModel mForthModel;
     private final ForthContract.View mView;
