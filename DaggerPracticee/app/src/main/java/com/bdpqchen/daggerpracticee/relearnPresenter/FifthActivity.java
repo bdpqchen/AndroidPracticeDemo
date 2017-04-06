@@ -18,7 +18,6 @@ import javax.inject.Inject;
 public class FifthActivity extends AppCompatActivity {
     protected ActivityComponent mActivityComponent;
 
-
     @Inject
     FifthPresenter presenter;
 
@@ -37,8 +36,5 @@ public class FifthActivity extends AppCompatActivity {
 
     }
 
-    public ActivityComponent getActivityComponent() {
-        return mActivityComponent;
-    }
 
 }
