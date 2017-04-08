@@ -29,6 +29,7 @@ public class FifthActivity extends AppCompatActivity {
                 .applicationComponent(((App) getApplication()).getApplicationComponent())
                 .activityModule(new ActivityModule(this))
                 .build();
+
         mActivityComponent.inject(this);
         Log.i("view", "activity is show");
         Log.i("data", presenter.loadData());
