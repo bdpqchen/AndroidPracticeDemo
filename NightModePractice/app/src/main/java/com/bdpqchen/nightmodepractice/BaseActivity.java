@@ -17,7 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
 
 
