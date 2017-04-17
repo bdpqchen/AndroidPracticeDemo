@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NightModePractice.iml" filepath="$PROJECT_DIR$/NightModePractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewspreadtranslationlibrary/viewspreadtranslationlibrary.iml" filepath="$PROJECT_DIR$/viewspreadtranslationlibrary/viewspreadtranslationlibrary.iml" />
     </modules>
   </component>
 </project>
