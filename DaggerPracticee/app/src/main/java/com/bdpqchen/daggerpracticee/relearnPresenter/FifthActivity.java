@@ -32,7 +32,7 @@ public class FifthActivity extends AppCompatActivity {
 
         mActivityComponent.inject(this);
         Log.i("view", "activity is show");
-        Log.i("data", presenter.loadData());
+//        Log.i("data", presenter.loadData());
 //        presenter.loadData();
 
     }

@@ -13,8 +13,8 @@ public class FifthPresenter  {
     private FifthPresenterImpl interactor ;
 
     @Inject
-    public FifthPresenter(FifthPresenterImpl presenterImpl){
-        this.interactor = presenterImpl;
+    public FifthPresenter(){
+//        this.interactor = presenterImpl;
         Log.i("FifthPresenter", "constructor");
 
     }

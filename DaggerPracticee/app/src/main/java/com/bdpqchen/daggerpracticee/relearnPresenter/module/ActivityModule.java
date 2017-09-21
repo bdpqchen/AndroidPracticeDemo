@@ -28,7 +28,6 @@ public class ActivityModule {
     public Context provideActivityContext(){
         return mActivity;
     }
-
     @Provides
     @PerActivity
     public Activity provideActivity(){

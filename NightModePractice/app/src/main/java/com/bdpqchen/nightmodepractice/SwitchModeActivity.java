@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.library.viewspread.helper.BaseViewHelper;
 
@@ -23,7 +22,6 @@ import com.library.viewspread.helper.BaseViewHelper;
 
 public class SwitchModeActivity extends BaseActivity {
 
-    private ImageView imageView;
     private Button mButtonNight;
 
     private BaseViewHelper helper;
@@ -88,8 +86,6 @@ public class SwitchModeActivity extends BaseActivity {
                 .Builder(this, view)
                 .startActivity(intent);
         finish();
-
-//        startActivity(new Intent(this, SwitchModeActivity.class));
 
     }
 

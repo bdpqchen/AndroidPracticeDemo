@@ -10,7 +10,6 @@ import android.widget.Button;
 import com.oubowu.slideback.SlideBackHelper;
 import com.oubowu.slideback.SlideConfig;
 import com.oubowu.slideback.widget.SlideBackLayout;
-import com.r0adkll.slidr.Slidr;
 
 /**
  * Created by bdpqchen on 17-4-7.
@@ -59,8 +58,6 @@ public class SecondActivity extends AppCompatActivity{
                         .slideOutPercent(0.5f).create(),
                 // 滑动的监听
                 null);
-
-//        mSlideBackLayout.
 
         // 其它初始化
 
