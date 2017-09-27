@@ -3,35 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     >
 
-    <com.bdpqchen.practice.customview.CustomViewGroup
+    <com.bdpqchen.practice.customview.BottomToolsLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/colorBottomToolsBg"
+        android:id="@+id/custom_bottom_tools"
+        app:tabIconSize="36dp"
+        app:tabIconTint="#000000"
+        >
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/avatar1"/>
+    </com.bdpqchen.practice.customview.BottomToolsLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/avatar2"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/avatar1"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/avatar1"/>
-    </com.bdpqchen.practice.customview.CustomViewGroup>
 </LinearLayout>
