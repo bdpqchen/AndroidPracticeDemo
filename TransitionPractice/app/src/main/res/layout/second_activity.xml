@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/material_amber500"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        />
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_circular"
+        />
+
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_circular"
+
+        />
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_circular"
+
+        />
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_circular"
+
+        />
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_circular"
+
+        />
+
+</LinearLayout>

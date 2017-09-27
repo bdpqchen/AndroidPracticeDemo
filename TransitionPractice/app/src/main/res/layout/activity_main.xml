@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_amber100"
+    tools:context="com.bdpqchen.transitionpractice.MainActivity"
+    >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:background="@color/material_amber500"
+        android:orientation="vertical"
+        android:id="@+id/ll_root_view"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/shape_circular"
+            />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
