@@ -1,16 +1,16 @@
 package com.bdpqchen.thumbview;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
-import android.support.v4.content.res.ResourcesCompat;
-import android.text.Layout;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,12 +21,13 @@ import android.widget.TextView;
 
 public class ThumbView extends LinearLayout {
 
-    private int mLike = 0;
+    private int mLike;
     private boolean mIsLiked = false;
     private Context mContext;
     private LinearLayout mLayout;
     private ImageView mImageView;
     private TextView mTextView;
+    private float mScale;
 
     public ThumbView(Context context) {
         super(context);
@@ -38,43 +39,67 @@ public class ThumbView extends LinearLayout {
         init(attrs);
     }
 
-
     private void init(AttributeSet attrs) {
         mContext = getContext();
-
         if (attrs != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ThumbView);
             mLike = Integer.parseInt(typedArray.getString(R.styleable.ThumbView_like));
             mIsLiked = typedArray.getBoolean(R.styleable.ThumbView_is_liked, false);
+            mScale = typedArray.getFloat(R.styleable.ThumbView_scale, 1);
             typedArray.recycle();
         }
         mLayout = new LinearLayout(mContext);
         mLayout.setGravity(Gravity.CENTER);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         addView(mLayout, params);
+        mTextView = new TextView(mContext);
+        mImageView = new ImageView(mContext);
         addThumb();
         addCount();
+        updateStatus();
+    }
 
+    private void updateStatus() {
+        int color = getResources().getColor(R.color.colorThumbDown);
+        if (mIsLiked) {
+            color = getResources().getColor(R.color.colorThumbUp);
+        }
+        if (mTextView != null) {
+            mTextView.setTextColor(color);
+            mTextView.setText(toStr(mLike));
+        }
+        if (mImageView != null) mImageView.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+    }
 
+    private String toStr(int count) {
+        return String.valueOf(Html.fromHtml("<b>" + count + "</b>"));
     }
 
     private void addCount() {
-        mTextView = new TextView(mContext);
-//        mTextView.
         setLikeCount(mLike);
     }
 
     private void addThumb() {
-        mImageView = new ImageView(mContext);
         mImageView.setImageResource(R.drawable.ic_thumb_up_black_24dp);
+        mImageView.setScaleType(ImageView.ScaleType.CENTER);
+        mImageView.setScaleX(mScale);
+        mImageView.setScaleY(mScale);
         mImageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mIsLiked) {
-                    unlike();
-                } else {
-                    addLike();
-                }
+                like();
+            }
+        });
+        mTextView.setTextSize(17);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(10, 0, 10, 0);
+        mTextView.setLayoutParams(lp);
+        mTextView.setClickable(true);
+        mTextView.setFocusable(true);
+        mTextView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                like();
             }
         });
 
@@ -82,35 +107,47 @@ public class ThumbView extends LinearLayout {
         mLayout.addView(mTextView);
     }
 
-    public void setLikeCount(int count) {
-        if (count < 0) count = 0;
-        mTextView.setText(String.valueOf(count));
+    private void like() {
+        if (mIsLiked) unlike();
+        else addLike();
     }
 
-    public void setImageColorTint(int tint) {
-        if (mImageView != null) {
-            mImageView.setColorFilter(tint, PorterDuff.Mode.SRC_IN);
-        }
+    public void setLikeCount(int count) {
+        if (count < 0) count = 0;
+        mLike = count;
+        updateStatus();
     }
 
     public void addLike() {
         mLike++;
         mIsLiked = true;
-//        mImageView.startAnimation();
-        setImageColorTint(mContext.getResources().getColor(R.color.colorThumbUp));
+        rotate(true);
+        updateStatus();
     }
 
     public void unlike() {
         minusLike();
         mIsLiked = false;
-//        mImageView.startAnimation();
-        setImageColorTint(mContext.getResources().getColor(R.color.colorThumbDown));
+        rotate(false);
+        updateStatus();
     }
 
     private void minusLike() {
         if (mLike > 0) mLike--;
         else mLike = 0;
+    }
 
+    public void setIsLiked(boolean b) {
+        mIsLiked = b;
+        updateStatus();
+    }
+
+    public void rotate(boolean sec) {
+        int anim = R.anim.thumb_down;
+        if (sec) anim = R.anim.thumb_up;
+        Animation rotateAnimation = AnimationUtils.loadAnimation(mContext, anim);
+        mImageView.setAnimation(rotateAnimation);
+        mImageView.startAnimation(rotateAnimation);
     }
 
 
