@@ -7,15 +7,11 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import java.util.function.LongUnaryOperator;
 
 /**
  * Created by bdpqchen on 17-9-26.
@@ -23,9 +19,7 @@ import java.util.function.LongUnaryOperator;
 
 public class BottomToolsLayout extends LinearLayout {
 
-    private int mTabColor;
     private Context mContext;
-    private LayoutInflater mLayoutInflater;
     private LinearLayout mLayout;
     private float mIconSize;
     private int mIconTint;
@@ -45,11 +39,9 @@ public class BottomToolsLayout extends LinearLayout {
         if (attrs != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.BottomToolsLayout);
             mIconTint = typedArray.getColor(R.styleable.BottomToolsLayout_tabIconTint, getResources().getColor(R.color.colorBottomToolsIconTint));
-            mIconSize = typedArray.getDimensionPixelSize(R.styleable.BottomToolsLayout_tabIconSize, 0);
-            Log.d("iconsize", String.valueOf(mIconSize));
+            mIconSize = typedArray.getDimensionPixelSize(R.styleable.BottomToolsLayout_tabIconSize, 24);
             typedArray.recycle();
         }
-        mLayoutInflater = LayoutInflater.from(mContext);
         mLayout = new LinearLayout(mContext);
         mLayout.setOrientation(HORIZONTAL);
         mLayout.setGravity(Gravity.CENTER);
@@ -59,20 +51,18 @@ public class BottomToolsLayout extends LinearLayout {
     }
 
     private int getImageMargin(int resSize, int defWidth) {
-        int result;
         int rest = WindowUtil.getWindowWidth(mContext) / resSize - defWidth;
-        result = rest / 2;
-        return result;
+        return rest / 2;
     }
 
     public void addTabs(@DrawableRes int[] reses, @IdRes int[] ids, OnClickListener listener) {
         int defWidth = (int) mIconSize;
-        int size = reses.length;
+        int size = reses.length > ids.length ? ids.length : reses.length;
         int imageMargin = getImageMargin(size, defWidth);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(defWidth, defWidth);
+        lp.setMargins(imageMargin, 0, imageMargin, 0);
         for (int i = 0; i < size; i++) {
-            ImageView view = (ImageView) mLayoutInflater.inflate(R.layout.view_bottom_tab_icon, null);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(defWidth, defWidth);
-            lp.setMargins(imageMargin, 0, imageMargin, 0);
+            ImageView view = new ImageView(mContext);
             view.setLayoutParams(lp);
             view.setColorFilter(mIconTint, PorterDuff.Mode.SRC_IN);
             view.setImageResource(reses[i]);
