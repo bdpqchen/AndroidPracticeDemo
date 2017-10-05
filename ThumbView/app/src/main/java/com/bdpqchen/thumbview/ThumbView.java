@@ -6,6 +6,7 @@ import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.text.Html;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,11 +30,6 @@ public class ThumbView extends LinearLayout {
     private TextView mTextView;
     private float mScale;
 
-    public ThumbView(Context context) {
-        super(context);
-        init(null);
-    }
-
     public ThumbView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
@@ -43,7 +39,10 @@ public class ThumbView extends LinearLayout {
         mContext = getContext();
         if (attrs != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ThumbView);
-            mLike = Integer.parseInt(typedArray.getString(R.styleable.ThumbView_like));
+            String count = typedArray.getString(R.styleable.ThumbView_like);
+            if (count != null && count.length() > 0){
+                mLike = Integer.valueOf(count);
+            }
             mIsLiked = typedArray.getBoolean(R.styleable.ThumbView_is_liked, false);
             mScale = typedArray.getFloat(R.styleable.ThumbView_scale, 1);
             typedArray.recycle();
@@ -58,6 +57,11 @@ public class ThumbView extends LinearLayout {
         addCount();
         updateStatus();
     }
+
+    public void setThumbClickListener(OnClickListener listener){
+        setOnClickListener(listener);
+    }
+
 
     private void updateStatus() {
         int color = getResources().getColor(R.color.colorThumbDown);
@@ -110,6 +114,11 @@ public class ThumbView extends LinearLayout {
     private void like() {
         if (mIsLiked) unlike();
         else addLike();
+        callOnClick();
+    }
+
+    private void log(String s){
+        Log.d("THUMB_VIEW_LOG", s);
     }
 
     public void setLikeCount(int count) {

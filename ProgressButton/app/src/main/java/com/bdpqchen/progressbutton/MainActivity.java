@@ -1,4 +1,4 @@
-package com.bdpqchen.thumbview;
+package com.bdpqchen.progressbutton;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,25 +7,23 @@ import android.util.Log;
 import android.view.View;
 
 /**
- * Created by bdpqchen on 17-9-29.
+ * Created by bdpqchen on 17-10-5.
  */
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        ThumbView thumbView = findViewById(R.id.thumb);
-        thumbView.setLikeCount(1);
-        thumbView.setIsLiked(true);
-        thumbView.setThumbClickListener(new View.OnClickListener() {
+        ProgressButton progressButton = findViewById(R.id.btn);
+        progressButton.setOnBtnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("onClick", "in the activity");
+                Log.d("onClicked", "btn");
             }
         });
-
-
     }
 }

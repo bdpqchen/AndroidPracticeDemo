@@ -11,12 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/thumb"
-        app:like="0"
-        app:is_liked="false"
         app:src="@drawable/ic_thumb_up_black_24dp"
         app:scale="0.8"
         />
-    <com.bdpqchen.thumbview.ThumbView
+   <!-- <com.bdpqchen.thumbview.ThumbView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:like="0"
@@ -24,6 +22,6 @@
         app:src="@drawable/ic_thumb_up_black_24dp"
         app:scale="0.8"
         />
-
+-->
 
 </LinearLayout>
