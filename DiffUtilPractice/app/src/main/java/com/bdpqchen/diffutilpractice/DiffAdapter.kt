@@ -35,9 +35,10 @@ class DiffAdapter(var list: ArrayList<Model>) : RecyclerView.Adapter<DiffAdapter
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d(TAG, "onBindView$position")
+//        Log.d(TAG, "onBindView$position")
         with(holder) {
             with(mDataList[position]) {
+                println(name)
                 tvName.text = name
             }
         }

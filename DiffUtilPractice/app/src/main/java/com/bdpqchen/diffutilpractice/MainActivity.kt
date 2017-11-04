@@ -30,16 +30,26 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..10) {
             list.add(Model(i, "name-->$i"))
         }
-        list[1].name = "changed name"
-//        mAdapter.notifyItemChanged(1)
-//        val model = list[1]
-//        list.remove(model)
-//        list.add(model)
+        println(Math.random())
+        val random: Int = (Math.random() * 10).toInt()
+        println(random)
+        list[random].name = "changed name"
+        val model = list[random]
+        list.remove(model)
+        list.add(model)
+        val result = DiffUtil.calculateDiff(object : DiffChecker1(mList, list) {
 
-//        println("size of mList is ${mList.size} and \n size of newList is ${list.size}")
-        val result = DiffUtil.calculateDiff(DiffCallback(mList, list), false)
+            override fun _areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                if (mList[oldItemPosition].name == list[newItemPosition].name) {
+                    return true
+                }
+                return false
+            }
+        }, true)
+        mList.clear()
+        mList.addAll(list)
+        mAdapter.setDataList(mList)
         result.dispatchUpdatesTo(mAdapter)
-//        mAdapter.setDataList(list)
 
     }
 
