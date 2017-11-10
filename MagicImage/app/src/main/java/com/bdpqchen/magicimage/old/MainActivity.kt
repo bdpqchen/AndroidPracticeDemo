@@ -1,9 +1,10 @@
-package com.bdpqchen.magicimage
+package com.bdpqchen.magicimage.old
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.gjiazhe.panoramaimageview.PanoramaImageView
+import android.widget.Button
+import com.bdpqchen.magicimage.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var panorama = findViewById<PanoramaImageView>(R.id.panorama_image_view)
+        val panorama = findViewById<Button>(R.id.panorama)
         panorama.setOnClickListener({ startAction(PanoramaActivity::class.java) })
+        val filter = findViewById<Button>(R.id.filter)
+        filter.setOnClickListener({ startAction(FilterActivity::class.java) })
 
 
 
