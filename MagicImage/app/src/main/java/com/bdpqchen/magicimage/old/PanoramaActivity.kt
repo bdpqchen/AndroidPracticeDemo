@@ -2,8 +2,8 @@ package com.bdpqchen.magicimage.old
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.WindowManager
 import com.bdpqchen.magicimage.R
-
 import com.gjiazhe.panoramaimageview.GyroscopeObserver
 import com.gjiazhe.panoramaimageview.PanoramaImageView
 
@@ -16,12 +16,13 @@ class PanoramaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_panorama)
         gyroscopeObserver = GyroscopeObserver()
         // Set the maximum radian the device should rotate to show image's bounds.
         // It should be set between 0 and π/2.
         // The default value is π/9.
-        gyroscopeObserver?.setMaxRotateRadian(Math.PI / 9)
+        gyroscopeObserver?.setMaxRotateRadian(Math.PI / 6)
 
         val panoramaImageView = findViewById<PanoramaImageView>(R.id.panorama_image_view)
 //        Glide.with(this).load(R.drawable.light1).into(panoramaImageView)

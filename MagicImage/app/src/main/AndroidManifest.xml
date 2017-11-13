@@ -9,16 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity" android:windowSoftInputMode="stateVisible|adjustPan">
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".old.MainActivity"/>
+        <activity android:name=".HomeActivity"/>
         <activity android:name=".old.PanoramaActivity"/>
         <activity android:name=".old.FilterActivity"/>
+        <activity android:name=".WaveActivity"/>
+        <activity android:name=".BasicColorActivity"/>
+        <activity android:name=".MatrixActivity"/>
     </application>
 
 </manifest>
