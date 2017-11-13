@@ -1,4 +1,4 @@
-package com.bdpqchen.magicimage.old
+package com.bdpqchen.magicimage
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

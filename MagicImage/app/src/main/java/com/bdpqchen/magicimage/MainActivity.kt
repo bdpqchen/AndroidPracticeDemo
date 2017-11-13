@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
-import com.bdpqchen.magicimage.old.FilterActivity
-import com.bdpqchen.magicimage.old.PanoramaActivity
 
 class MainActivity : AppCompatActivity() {
 
